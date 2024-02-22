@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Multi Step Form | CodingNepal</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <h1>Register As A Hospital</h1>
+
+    <div class="container">
+      <form method="POST">
+        {% csrf_token %}
+        <h2 class="form-header">Blood Details:</h2>
+        <div class="form-outer">
+          <div class="input">
+            <label for="b-type" class="label">Choose Blood Type:</label>
+
+            <select name="blood_type" class="b-types">
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-+">O-</option>
+            </select>
+          </div>
+
+          <div class="input">
+            <label for="pwd" class="label">Amount Available(in Units): </label>
+            <input type="number" class="pwd" name="amount" />
+          </div>
+          <div class="input">
+            <label for="cpwd" class="label">Date of Donation: </label>
+            <input type="date" class="cpwd" name="days" />
+          </div>
+          <div class="btn-div">
+            <button class="btn">ADD</button>
+          </div>
+          <h2 class="form-header adt-header">Added Blood Details:</h2>
+          <div class="input">
+            {% if blood_details %}
+            <table class="table">
+              <thead>
+                <tr>
+                <th>Sr No.</th>
+                <th>Blood Type</th>
+                <th>Amount Available</th>
+                <th>Date of Donation</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for b in blood_list %}
+              <tr>
+                <td>Griffin</td>
+                <td>{{b.blood_type}}</td>
+                <td>{{b.amount}}</td>
+                <td>{{b.days}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            {% else %}
+              <p> you do not have any data</p>
+            {% endif %}
+            </table>
+          </div>
+          <div class="btn-div">
+            <button class="btn btn-prev"><a href="{% url 'signup2' %}">PREVIOUS</a></button>
+            <button class="btn"><a href="{% url 'login' %}">NEXT</a></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
