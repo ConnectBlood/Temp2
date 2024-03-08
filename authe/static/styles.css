@@ -145,3 +145,46 @@ img {
   align-items: center;
   gap: 40px;
 }
+.hospital-list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  border-bottom: 2px solid darkgrey;
+  /* border-radius: 15px; */
+  /* gap: 40px; */
+}
+/* .hospital-list-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+
+  border-bottom: 2px solid darkgrey;
+  gap: 40px;
+} */
+.plc-holder {
+  color: transparent;
+}
+
+.table-bordered {
+  border: 1px solid #ddd !important;
+}
+
+table caption {
+  padding: 0.5em 0;
+}
+
+@media screen and (max-width: 767px) {
+  table caption {
+    display: none;
+  }
+}
+
+/* .p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+} */

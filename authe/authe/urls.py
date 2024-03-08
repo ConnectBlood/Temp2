@@ -28,5 +28,9 @@ urlpatterns = [
     path('signup2/',views.Signup2Page,name='signup2'),
     path('logout/', views.LogoutPage, name='logout'),
     path('userlist/',views.user_list,name='userlist'),
+    path('updatedetails/',views.update_blood_details,name='Updatedetails'),
+    path('add/',views.AddBlood,name='AddBlood'),
+    path('edit/',views.Edit,name='edit'),
+    path('update/',views.Update,name='update')
     # path('sendrequest/',views.send_request,name='sendrequest'),
 ]

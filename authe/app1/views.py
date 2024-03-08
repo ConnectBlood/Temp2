@@ -85,6 +85,46 @@ def user_list(request):
     user_list = User.objects.exclude(username=current_user.username)
     return render(request, 'user_list.html', {'user_list': user_list})
 
+def update_blood_details(request):
+    all_blood=blood_details.objects.filter(hospital=request.user)
+    print(all_blood)
+    return render(request, 'UpdateDetails.html', {'all_blood': all_blood})
+def Edit(request):
+    all_blood=blood_details.objects.filter(hospital=request.user)
+
+    return redirect(request, 'UpdateDetails.html', {'all_blood': all_blood})
+
+def AddBlood(request):
+    all_blood=blood_details.objects.filter(hospital=request.user)
+    if request.method == 'POST':
+        blood_type = request.POST.get('blood_type')
+        amount = request.POST.get('amount')
+        days = 5  # Assuming you calculate days elsewhere
+
+        # Save the blood details with the current user's hospital
+        blood=blood_details(
+            hospital=request.user,
+            blood_type=blood_type,
+            amount=amount,
+            days=days
+        )
+        blood.save()
+        return redirect('Updatedetails')
+def Update(request):
+        if request.method == 'POST':
+          blood_type = request.POST.get('blood_type')
+          amount = request.POST.get('amount')
+          days = 5  # Assuming you calculate days elsewhere
+
+        # Save the blood details with the current user's hospital
+        blood=blood_details(
+            hospital=request.user,
+            blood_type=blood_type,
+            amount=amount,
+            days=days
+        )
+        blood.save()
+        return redirect('Updatedetails')
 # def send_request(request, *args, **kwargs):
 #     user=request.user
 #     payload={}

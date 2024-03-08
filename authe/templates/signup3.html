@@ -29,7 +29,7 @@
               <option value="AB+">AB+</option>
               <option value="AB-">AB-</option>
               <option value="O+">O+</option>
-              <option value="O-+">O-</option>
+              <option value="O-">O-</option>
             </select>
           </div>
 
@@ -50,29 +50,31 @@
             <table class="table">
               <thead>
                 <tr>
-                <th>Sr No.</th>
-                <th>Blood Type</th>
-                <th>Amount Available</th>
-                <th>Date of Donation</th>
-              </tr>
+                  <th>Sr No.</th>
+                  <th>Blood Type</th>
+                  <th>Amount Available</th>
+                  <th>Date of Donation</th>
+                </tr>
               </thead>
               <tbody>
-              {% for b in blood_list %}
-              <tr>
-                <td>Griffin</td>
-                <td>{{b.blood_type}}</td>
-                <td>{{b.amount}}</td>
-                <td>{{b.days}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-            {% else %}
-              <p> you do not have any data</p>
-            {% endif %}
+                {% for b in blood_list %}
+                <tr>
+                  <td>Griffin</td>
+                  <td>{{b.blood_type}}</td>
+                  <td>{{b.amount}}</td>
+                  <td>{{b.days}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              {% else %}
+              <p>you do not have any data</p>
+              {% endif %}
             </table>
           </div>
           <div class="btn-div">
-            <button class="btn btn-prev"><a href="{% url 'signup2' %}">PREVIOUS</a></button>
+            <button class="btn btn-prev">
+              <a href="{% url 'signup2' %}">PREVIOUS</a>
+            </button>
             <button class="btn"><a href="{% url 'login' %}">NEXT</a></button>
           </div>
         </div>

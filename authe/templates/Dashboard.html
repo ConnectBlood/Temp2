@@ -10,8 +10,10 @@
     <div class="nav-bar">
       <div class="btn-nav">
         <button class="btn">REQUEST BLOOD</button>
-        <button class="btn">REGISTER</button>
-        <button class="btn">LOGIN</button>
+        <button class="btn">
+          <a href="{% url 'Updatedetails' %}">UPDATE BLOOD DETAILS</a>
+        </button>
+        <button class="btn">LOGOUT</button>
       </div>
     </div>
     <div class="db-content-div">
@@ -52,7 +54,6 @@
       </div>
       <div>
         <h2><a href="{% url 'userlist' %}">Suggestions</a></h2>
-
       </div>
     </div>
 
